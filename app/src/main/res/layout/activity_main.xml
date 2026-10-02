@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg"
+    android:fitsSystemWindows="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/app_name"
+            android:textColor="@color/text"
+            android:textSize="28sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="@string/tagline"
+            android:textColor="@color/muted"
+            android:textSize="15sp" />
+
+        <!-- Beat indicator + tempo -->
+        <View
+            android:id="@+id/beat_dot"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="32dp"
+            android:alpha="0.2"
+            android:background="@drawable/beat_dot" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/bpm_minus"
+                style="@style/RoundButton"
+                android:text="−" />
+
+            <LinearLayout
+                android:layout_width="140dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/bpm_value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/text"
+                    android:textSize="64sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/bpm_label"
+                    android:textColor="@color/muted"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/bpm_plus"
+                style="@style/RoundButton"
+                android:text="+" />
+        </LinearLayout>
+
+        <SeekBar
+            android:id="@+id/bpm_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal">
+
+            <Button android:id="@+id/preset_60" style="@style/PresetButton" android:text="60" />
+            <Button android:id="@+id/preset_80" style="@style/PresetButton" android:text="80" />
+            <Button android:id="@+id/preset_100" style="@style/PresetButton" android:text="100" />
+            <Button android:id="@+id/preset_120" style="@style/PresetButton" android:text="120" />
+        </LinearLayout>
+
+        <!-- Intensity -->
+        <LinearLayout style="@style/LabelRow" android:layout_marginTop="28dp">
+            <TextView style="@style/Label" android:text="@string/intensity" />
+            <TextView android:id="@+id/intensity_value" style="@style/Value" />
+        </LinearLayout>
+
+        <SeekBar
+            android:id="@+id/intensity_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp" />
+
+        <TextView
+            android:id="@+id/amplitude_note"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="@string/amplitude_note"
+            android:textColor="@color/muted"
+            android:textSize="13sp"
+            android:visibility="gone" />
+
+        <!-- Pulse length -->
+        <LinearLayout style="@style/LabelRow" android:layout_marginTop="24dp">
+            <TextView style="@style/Label" android:text="@string/pulse_length" />
+            <TextView android:id="@+id/pulse_value" style="@style/Value" />
+        </LinearLayout>
+
+        <SeekBar
+            android:id="@+id/pulse_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp" />
+
+        <!-- Auto-stop timer -->
+        <LinearLayout style="@style/LabelRow" android:layout_marginTop="24dp">
+            <TextView style="@style/Label" android:text="@string/timer" />
+            <TextView android:id="@+id/timer_value" style="@style/Value" />
+        </LinearLayout>
+
+        <SeekBar
+            android:id="@+id/timer_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal">
+
+            <Button android:id="@+id/timer_off" style="@style/PresetButton" android:text="@string/timer_off" />
+            <Button android:id="@+id/timer_5" style="@style/PresetButton" android:text="5 min" />
+            <Button android:id="@+id/timer_10" style="@style/PresetButton" android:text="10 min" />
+            <Button android:id="@+id/timer_20" style="@style/PresetButton" android:text="20 min" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/test_pulse"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:layout_marginTop="28dp"
+            android:backgroundTint="@color/surface"
+            android:text="@string/test_pulse"
+            android:textColor="@color/text" />
+
+        <Button
+            android:id="@+id/start_stop"
+            android:layout_width="match_parent"
+            android:layout_height="68dp"
+            android:layout_marginTop="12dp"
+            android:backgroundTint="@color/start_button"
+            android:text="@string/start"
+            android:textColor="@color/bg"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/remaining"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:textColor="@color/accent"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:visibility="gone" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/lock_hint"
+            android:textColor="@color/muted"
+            android:textSize="13sp" />
+    </LinearLayout>
+</ScrollView>
